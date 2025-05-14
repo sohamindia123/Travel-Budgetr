@@ -1,0 +1,753 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #48E5C2;
+    --primary-dark: #3BC7A7;
+    --secondary-color: #F3D3BD;
+    --secondary-dark: #E9BEA2;
+    --accent-color: #5E5E5E;
+    --positive-color: #48E5C2;
+    --negative-color: #FF6B6B;
+    --background-color: #FCFAF9;
+    --card-background: #ffffff;
+    --text-primary: #333333;
+    --text-secondary: #5E5E5E;
+    --border-color: #EEEEEE;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --border-radius: 10px;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--background-color);
+    padding-bottom: 2rem;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Card style for all sections */
+.card-style {
+    background: var(--card-background);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-style:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Buttons */
+button {
+    background-color: var(--primary-color);
+    color: var(--text-primary);
+    font-weight: 500;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    width: 100%;
+    transition: background-color 0.3s, transform 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+button:hover {
+    background-color: var(--primary-dark);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+button i {
+    font-size: 1rem;
+}
+
+.primary-button {
+    background-color: var(--primary-color);
+    color: var(--text-primary);
+}
+
+.primary-button:hover {
+    background-color: var(--primary-dark);
+}
+
+/* Styling for the third (reset) button */
+button.secondary {
+    background-color: #333333;
+    color: white;
+    font-weight: 500;
+}
+
+button.secondary:hover {
+    background-color: #222222;
+}
+
+#add-member-btn {
+    background-color: var(--secondary-color);
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 30px;
+    font-weight: 500;
+    position: relative;
+}
+
+#add-member-btn:hover {
+    background-color: var(--secondary-dark);
+}
+
+/* Logo styling */
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.2rem;
+}
+
+.logo-image {
+    max-width: 200px;
+    max-height: 100px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+/* Navigation */
+.main-nav {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+    padding-bottom: 1rem;
+}
+
+.nav-button {
+    flex: 1;
+    min-width: 120px;
+    padding: 0.7rem 1rem;
+    border-radius: 50px;
+    background-color: #FCFAF9;
+    color: #333333;
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+}
+
+.nav-button.active {
+    background-color: var(--primary-color);
+    color: var(--text-primary);
+}
+
+.nav-button.secondary {
+    background-color: #333333;
+    color: white;
+}
+
+.nav-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.nav-button.secondary:hover {
+    background-color: #222222;
+}
+
+/* Setup overlay styling */
+.setup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #3498db, #2c3e50);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 1rem;
+    overflow: auto;
+}
+
+/* Setup container with more space */
+.setup-container {
+    background-color: var(--card-background);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    width: 100%;
+    max-width: 550px; /* Increased width */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin: auto;
+}
+
+.setup-container h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--text-primary);
+}
+
+/* Create more breathing room between sections */
+.setup-section {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.setup-section h3 {
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.help-text {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.8rem;
+}
+
+/* Members section - optimized layout */
+.members-section {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.members-section h3 {
+    margin-bottom: 0.5rem;
+}
+
+.members-section p.help-text {
+    margin-bottom: 0.8rem;
+    font-size: 0.85rem;
+}
+
+/* Fixed height scrollable container for members */
+.members-scrollable-container {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 12px;
+    max-height: 180px; /* Reduced height */
+    overflow-y: auto;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+}
+
+/* Member inputs list styling */
+#member-inputs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* More spacious member inputs */
+.member-input-row {
+    display: flex;
+    gap: 0.6rem;
+    width: 100%;
+    margin-bottom: 0.5rem; /* Increased spacing */
+}
+
+.member-input-row input {
+    flex: 1;
+    padding: 0.8rem;
+    font-size: 1rem;
+}
+
+/* Setup footer - contains the Start Budgeting button */
+.setup-footer {
+    margin-top: 1rem;
+    padding-top: 0.5rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Larger start budgeting button */
+#start-budgeting {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    font-size: 1rem;
+    padding: 0.9rem;
+    border-radius: 30px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* Custom scrollbar styling */
+.members-scrollable-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.members-scrollable-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.members-scrollable-container::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 10px;
+}
+
+.members-scrollable-container::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-dark);
+}
+
+/* Main container styling */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+header h1 {
+    color: var(--text-primary);
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Style the welcome title and taglines */
+.welcome-title {
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    font-size: 1.6rem;
+    background: linear-gradient(45deg, var(--text-primary), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 600;
+    text-align: center;
+    padding: 0 5px;
+}
+
+.tagline {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    font-style: italic;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 8px;
+    text-align: center;
+    width: 100%;
+}
+
+.tagline:after {
+    content: '';
+    position: absolute;
+    width: 70%;
+    height: 2px;
+    bottom: 0;
+    left: 15%;
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+}
+
+/* Special tagline with animation */
+.tagline-special {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.2rem;
+    letter-spacing: 0.4px;
+    text-align: center;
+    font-weight: 500;
+    line-height: 1.4;
+    position: relative;
+    padding: 0 5px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+section {
+    margin-bottom: 2rem;
+}
+
+section h2 {
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+section h2 i {
+    color: var(--primary-color);
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+input, select, .enhanced-select {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: white;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.amount-input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.currency-symbol {
+    position: absolute;
+    left: 1rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+#expense-amount {
+    padding-left: 2rem;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.25);
+}
+
+.total-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.summary-item {
+    text-align: center;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    transition: transform 0.3s;
+}
+
+.summary-item:hover {
+    transform: translateY(-5px);
+}
+
+.summary-item h3 {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.summary-item p {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--text-primary);
+}
+
+/* Lists styling */
+.balance-list, .settlement-list {
+    display: grid;
+    gap: 0.8rem;
+}
+
+.balance-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    transition: transform 0.2s;
+}
+
+.balance-item:hover {
+    transform: translateX(5px);
+}
+
+.balance-item.positive {
+    border-left: 4px solid var(--positive-color);
+}
+
+.balance-item.negative {
+    border-left: 4px solid var(--negative-color);
+}
+
+.settlement-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    border-left: 4px solid var(--accent-color);
+    transition: transform 0.2s;
+}
+
+.settlement-item:hover {
+    transform: translateX(5px);
+}
+
+.settlement-item span {
+    font-size: 1rem;
+}
+
+.settlement-item .amount {
+    font-weight: bold;
+    color: var(--text-primary);
+}
+
+.expense-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.2s, transform 0.2s;
+    background-color: white;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.expense-item:hover {
+    background-color: #f8f9fa;
+    transform: translateY(-2px);
+}
+
+.expense-item:last-child {
+    border-bottom: none;
+}
+
+.expense-description {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+}
+
+.expense-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    color: var(--text-secondary);
+}
+
+.expense-amount, .expense-payer {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.expense-amount {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.expense-icon {
+    color: var(--primary-color);
+    font-size: 0.9rem;
+}
+
+#expenses-table {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .expense-item {
+        padding: 1rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .expense-details {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .setup-container {
+        width: 95%;
+        padding: 1.2rem;
+        max-width: 95%;
+        margin: 10px auto;
+    }
+    
+    .setup-overlay {
+        align-items: flex-start;
+        padding: 0.5rem;
+    }
+    
+    .logo-container img {
+        max-width: 180px;
+    }
+    
+    .welcome-title {
+        font-size: 1.4rem;
+    }
+    
+    .tagline-special {
+        font-size: 0.9rem;
+    }
+    
+    .members-scrollable-container {
+        max-height: 160px;
+    }
+    
+    .main-nav {
+        flex-direction: column;
+    }
+    
+    .nav-button {
+        width: 100%;
+    }
+    
+    .summary-item p {
+        font-size: 1.5rem;
+    }
+    
+    #start-budgeting {
+        font-size: 1rem;
+        padding: 0.9rem;
+        width: 100%;
+    }
+}
+
+/* Additional media query for very small screens */
+@media (max-width: 400px) {
+    .setup-container {
+        padding: 1rem;
+    }
+    
+    .members-scrollable-container {
+        max-height: 150px;
+    }
+    
+    #add-member-btn {
+        margin-bottom: 1rem;
+    }
+    
+    .setup-footer {
+        margin-top: 0.8rem;
+    }
+    
+    #start-budgeting {
+        font-size: 0.9rem;
+        padding: 0.8rem;
+    }
+    
+    .welcome-title {
+        font-size: 1.3rem;
+    }
+    
+    .expense-description {
+        font-size: 1rem;
+    }
+    
+    .expense-item {
+        padding: 0.8rem;
+    }
+}
+
+/* Additional media query for height-constrained devices */
+@media (max-height: 700px) {
+    .setup-overlay {
+        align-items: flex-start;
+        padding-top: 0.5rem;
+    }
+    
+    .setup-container {
+        padding: 1.2rem;
+    }
+    
+    .members-scrollable-container {
+        max-height: 120px;
+    }
+    
+    .logo-container {
+        margin-bottom: 0.8rem;
+    }
+    
+    .logo-image {
+        max-height: 70px;
+    }
+    
+    .welcome-title {
+        margin-bottom: 0.3rem;
+    }
+    
+    .tagline-special {
+        margin-bottom: 0.8rem;
+    }
+    
+    .setup-section {
+        margin-bottom: 1rem;
+    }
+    
+    #add-member-btn {
+        margin-bottom: 0.8rem;
+    }
+}
+
+/* Remove member button styling */
+.remove-member {
+    width: 36px;
+    height: 36px;
+    background-color: var(--negative-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    flex-shrink: 0;
+}
+
+.remove-member:hover {
+    background-color: #c0392b;
+} 
