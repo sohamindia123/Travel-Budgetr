@@ -46,7 +46,7 @@ A simple, intuitive web app for tracking and splitting travel expenses among gro
 
 ### Option 2: Use the Live Demo
 
-Visit [TravelBudgetr Live Demo](https://your-username.github.io/TravelBudgetr) to use the application without installation.
+Visit [TravelBudgetr Live Demo](https://sohamindia123.github.io/Travel-Budgetr/) to use the application without installation.
 
 ## 💻 How to Use
 
