@@ -34,7 +34,7 @@ A simple, intuitive web app for tracking and splitting travel expenses among gro
 
 1. Clone this repository:
    ```
-   git clone https://github.com/your-username/TravelBudgetr.git
+   git clone https://github.com/sohamindia123/TravelBudgetr.git
    ```
 
 2. Navigate to the project directory:
