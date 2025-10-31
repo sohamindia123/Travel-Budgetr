@@ -15,23 +15,20 @@ class TravelBudgetr {
         
         this.setupCompleted = false;
         
-        // Try to load saved data from localStorage
         this.loadFromLocalStorage();
         
-        // Initialize based on whether we have saved data
         if (this.setupCompleted) {
-            // Skip setup if we have saved data
             this.initializeMainEventListeners();
             this.populateMembersDropdown();
             this.updateCurrencySymbol();
             this.updateUI();
             
-            // Hide setup overlay
+
             document.getElementById('initial-setup').style.display = 'none';
         } else {
             this.initializeSetupEventListeners();
             
-            // Set default currency selector to INR
+
             const currencySelector = document.getElementById('currency-selector');
             if (currencySelector) {
                 currencySelector.value = 'INR';
@@ -39,7 +36,7 @@ class TravelBudgetr {
         }
     }
     
-    // Save all app data to localStorage
+
     saveToLocalStorage() {
         const appData = {
             expenses: this.expenses,
@@ -51,7 +48,7 @@ class TravelBudgetr {
         localStorage.setItem('travelBudgetrData', JSON.stringify(appData));
     }
     
-    // Load app data from localStorage
+
     loadFromLocalStorage() {
         const savedData = localStorage.getItem('travelBudgetrData');
         
@@ -65,7 +62,7 @@ class TravelBudgetr {
                     this.selectedCurrency = appData.selectedCurrency || 'USD';
                     this.setupCompleted = appData.setupCompleted || false;
                     
-                    // Set currency selector value if element exists
+
                     const currencySelector = document.getElementById('currency-selector');
                     if (currencySelector) {
                         currencySelector.value = this.selectedCurrency;
@@ -75,32 +72,31 @@ class TravelBudgetr {
                 }
             } catch (error) {
                 console.error('Error loading saved data:', error);
-                // Clear potentially corrupted data
+
                 localStorage.removeItem('travelBudgetrData');
                 return false;
             }
         }
         
-        // Clear members to ensure fresh start
+
         this.members.clear();
         return false;
     }
 
     initializeSetupEventListeners() {
-        // Add member button
-        const addMemberBtn = document.getElementById('add-member-btn');
+                const addMemberBtn = document.getElementById('add-member-btn');
         addMemberBtn.addEventListener('click', () => this.addMemberInput());
         
-        // Start budgeting button
+
         const startBudgetingBtn = document.getElementById('start-budgeting');
         startBudgetingBtn.addEventListener('click', () => this.completeSetup());
         
-        // Initialize first member removal button
+
         document.querySelectorAll('.remove-member').forEach(button => {
             button.addEventListener('click', (e) => this.removeMemberInput(e.target.closest('.member-input-row')));
         });
         
-        // Currency selector
+
         const currencySelector = document.getElementById('currency-selector');
         currencySelector.addEventListener('change', (e) => {
             this.selectedCurrency = e.target.value;
@@ -127,36 +123,36 @@ class TravelBudgetr {
         
         memberInputsList.appendChild(newMemberRow);
         
-        // Add event listener to the new remove button
+
         const removeButton = newMemberRow.querySelector('.remove-member');
         removeButton.addEventListener('click', () => this.removeMemberInput(newMemberRow));
         
-        // Focus the new input
+
         const newInput = newMemberRow.querySelector('input');
         newInput.focus();
         
-        // Scroll to show the new input
+
         const scrollableContainer = document.querySelector('.members-scrollable-container');
         scrollableContainer.scrollTop = scrollableContainer.scrollHeight;
     }
     
     removeMemberInput(memberRow) {
-        // Don't remove if it's the last member
+   
         const memberRows = document.querySelectorAll('.member-input-row');
         if (memberRows.length > 1) {
             memberRow.remove();
         } else {
-            // Clear the input instead of removing the row
+    
             memberRow.querySelector('input').value = '';
             memberRow.querySelector('input').focus();
         }
     }
     
     completeSetup() {
-        // Clear any existing members first to avoid duplicates
+ 
         this.members.clear();
         
-        // Get all member names
+
         const memberInputs = document.querySelectorAll('.member-name');
         let validMembers = false;
         
@@ -173,19 +169,19 @@ class TravelBudgetr {
             return;
         }
         
-        // Hide setup overlay
+
         document.getElementById('initial-setup').style.display = 'none';
         
-        // Initialize the main app
+       
         this.setupCompleted = true;
         this.initializeMainEventListeners();
         this.populateMembersDropdown();
         this.updateCurrencySymbol();
         
-        // Make sure we're on the expense tab by default
+  
         this.switchTab('add-expense');
         
-        // Save the setup data
+   
         this.saveToLocalStorage();
         
         // Show welcome message
@@ -557,4 +553,5 @@ class TravelBudgetr {
 }
 
 // Initialize the app
+
 const app = new TravelBudgetr(); 
