@@ -33,7 +33,6 @@ body {
     display: none !important;
 }
 
-/* Card style for all sections */
 .card-style {
     background: var(--card-background);
     border-radius: var(--border-radius);
@@ -47,7 +46,6 @@ body {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Buttons */
 button {
     background-color: var(--primary-color);
     color: var(--text-primary);
@@ -86,7 +84,6 @@ button i {
     background-color: var(--primary-dark);
 }
 
-/* Styling for the third (reset) button */
 button.secondary {
     background-color: #333333;
     color: white;
@@ -110,7 +107,6 @@ button.secondary:hover {
     background-color: var(--secondary-dark);
 }
 
-/* Logo styling */
 .logo-container {
     display: flex;
     align-items: center;
@@ -125,7 +121,6 @@ button.secondary:hover {
     border-radius: 8px;
 }
 
-/* Navigation */
 .main-nav {
     display: flex;
     gap: 1rem;
@@ -165,7 +160,6 @@ button.secondary:hover {
     background-color: #222222;
 }
 
-/* Setup overlay styling */
 .setup-overlay {
     position: fixed;
     top: 0;
@@ -181,13 +175,12 @@ button.secondary:hover {
     overflow: auto;
 }
 
-/* Setup container with more space */
 .setup-container {
     background-color: var(--card-background);
     border-radius: var(--border-radius);
     padding: 1.5rem;
     width: 100%;
-    max-width: 550px; /* Increased width */
+    max-width: 550px; 
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
@@ -201,7 +194,6 @@ button.secondary:hover {
     color: var(--text-primary);
 }
 
-/* Create more breathing room between sections */
 .setup-section {
     margin-bottom: 1.5rem;
     display: flex;
@@ -222,7 +214,6 @@ button.secondary:hover {
     margin-bottom: 0.8rem;
 }
 
-/* Members section - optimized layout */
 .members-section {
     display: flex;
     flex-direction: column;
@@ -238,30 +229,29 @@ button.secondary:hover {
     font-size: 0.85rem;
 }
 
-/* Fixed height scrollable container for members */
 .members-scrollable-container {
     background-color: #f8f9fa;
     border-radius: 8px;
     padding: 12px;
     margin-bottom: 12px;
-    max-height: 180px; /* Reduced height */
+    max-height: 180px;
     overflow-y: auto;
     box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
 }
 
-/* Member inputs list styling */
+
 #member-inputs-list {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-/* More spacious member inputs */
+
 .member-input-row {
     display: flex;
     gap: 0.6rem;
     width: 100%;
-    margin-bottom: 0.5rem; /* Increased spacing */
+    margin-bottom: 0.5rem;
 }
 
 .member-input-row input {
@@ -270,7 +260,7 @@ button.secondary:hover {
     font-size: 1rem;
 }
 
-/* Setup footer - contains the Start Budgeting button */
+
 .setup-footer {
     margin-top: 1rem;
     padding-top: 0.5rem;
@@ -279,7 +269,7 @@ button.secondary:hover {
     justify-content: center;
 }
 
-/* Larger start budgeting button */
+
 #start-budgeting {
     background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
     font-size: 1rem;
@@ -292,7 +282,7 @@ button.secondary:hover {
     margin: 0 auto;
 }
 
-/* Custom scrollbar styling */
+
 .members-scrollable-container::-webkit-scrollbar {
     width: 6px;
 }
@@ -311,7 +301,7 @@ button.secondary:hover {
     background: var(--primary-dark);
 }
 
-/* Main container styling */
+
 .container {
     max-width: 1000px;
     margin: 0 auto;
@@ -329,7 +319,7 @@ header h1 {
     margin-bottom: 0.5rem;
 }
 
-/* Style the welcome title and taglines */
+
 .welcome-title {
     color: var(--text-primary);
     margin-bottom: 0.5rem;
@@ -366,7 +356,7 @@ header h1 {
     background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
 }
 
-/* Special tagline with animation */
+
 .tagline-special {
     font-size: 1rem;
     color: var(--text-secondary);
@@ -482,7 +472,6 @@ input:focus, select:focus {
     color: var(--text-primary);
 }
 
-/* Lists styling */
 .balance-list, .settlement-list {
     display: grid;
     gap: 0.8rem;
@@ -594,7 +583,6 @@ input:focus, select:focus {
     gap: 0.5rem;
 }
 
-/* Media queries for responsive design */
 @media (max-width: 768px) {
     .container {
         padding: 1rem;
@@ -657,7 +645,6 @@ input:focus, select:focus {
     }
 }
 
-/* Additional media query for very small screens */
 @media (max-width: 400px) {
     .setup-container {
         padding: 1rem;
@@ -693,7 +680,6 @@ input:focus, select:focus {
     }
 }
 
-/* Additional media query for height-constrained devices */
 @media (max-height: 700px) {
     .setup-overlay {
         align-items: flex-start;
@@ -733,7 +719,6 @@ input:focus, select:focus {
     }
 }
 
-/* Remove member button styling */
 .remove-member {
     width: 36px;
     height: 36px;
@@ -750,4 +735,5 @@ input:focus, select:focus {
 
 .remove-member:hover {
     background-color: #c0392b;
+
 } 
